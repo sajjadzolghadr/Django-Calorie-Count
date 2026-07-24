@@ -7,18 +7,17 @@
 <body>
       <form method="POST">
          {% csrf_token %}
-
+         <label>Select Food</label>
          <select name="food">
 
              {% for food in foods %}
-                <option value="{{ food.id }}">
+                 <option value="{{ food.id }}">
                       {{ food.name }}
-                </option>
+                 </option>
              {% endfor %}
 
          </select>
-
-       <button type="submit">Submit</button>
+          <button type="submit">Add</button>
 
        </form>
 
