@@ -23,6 +23,8 @@ def index(request):
         total_carbs += c.food_consume.carbs
         total_protein += c.food_consume.protein
         total_fats += c.food_consume.fats
+    daily_goal = 2000
+    progress = min((total_calories / daily_goal) * 100, 100)
     return render(request, "myapp/index.html", {
         "foods": foods,
         "consumed_food": consumed_food,
@@ -30,4 +32,6 @@ def index(request):
         "total_carbs": total_carbs,
         "total_protein": total_protein,
         "total_fats": total_fats,
+        "daily_goal": daily_goal,
+        "progress": progress,
     })

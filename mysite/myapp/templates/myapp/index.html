@@ -43,6 +43,30 @@
                 </div>
 
             </form>
+            <div class="mb-4">
+
+    <div class="d-flex justify-content-between">
+        <strong>Calorie Goal</strong>
+        <span>{{ total_calories }} / {{ daily_goal }} kcal</span>
+    </div>
+
+    <div class="progress mt-2" style="height: 25px;">
+
+        <div
+            class="progress-bar bg-success"
+            role="progressbar"
+            style="width: {{ progress }}%;"
+            aria-valuenow="{{ progress }}"
+            aria-valuemin="0"
+            aria-valuemax="100">
+
+            {{ progress|floatformat:0 }}%
+
+        </div>
+
+    </div>
+
+</div>
 
             <h5 class="mb-3">Consumed Foods</h5>
 
