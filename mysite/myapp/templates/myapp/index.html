@@ -90,6 +90,7 @@
                         <th>Protein (g)</th>
                         <th>Fats (g)</th>
                         <th>Calories</th>
+                        <th>Remove Item</th>
                     </tr>
                 </thead>
 
@@ -103,6 +104,11 @@
                             <td>{{ c.food_consume.protein }}</td>
                             <td>{{ c.food_consume.fats }}</td>
                             <td>{{ c.food_consume.calories }}</td>
+                            <td>
+                                <a href="{% url 'delete' c.id %}" class="btn btn-danger btn-sm">
+                                    Delete
+                                </a>
+                            </td>
                         </tr>
 
                     {% empty %}
@@ -149,7 +155,7 @@ new Chart(ctx, {
             data:[carbsPercent,proteinPercent,fatsPercent],
             backgroundColor: [
                 '#36A2EB',
-                '#4BC0C0',
+                '#FFC107',
                 '#FF6384'
             ]
         }]

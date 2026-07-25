@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Food,Consume
 # Create your views here.
 def index(request):
@@ -35,3 +35,9 @@ def index(request):
         "daily_goal": daily_goal,
         "progress": progress,
     })
+def delete_consume(request,id):
+    consume = Consume.objects.get(id=id)
+    if request.method == "POST":
+        consume.delete()
+        return redirect("/")
+    return render(request, "myapp/delete.html",{'consume':consume})
