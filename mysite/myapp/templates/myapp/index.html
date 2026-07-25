@@ -79,6 +79,13 @@
                         </tr>
 
                     {% endfor %}
+                    <tr class="table-success fw-bold">
+                        <td>Total</td>
+                        <td>{{ total_carbs|floatformat:1 }}</td>
+                        <td>{{ total_protein|floatformat:1 }}</td>
+                        <td>{{ total_fats|floatformat:1 }}</td>
+                        <td>{{ total_calories }}</td>
+                    </tr>
 
                 </tbody>
 

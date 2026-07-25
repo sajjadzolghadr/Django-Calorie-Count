@@ -13,7 +13,21 @@ def index(request):
         )
 
     consumed_food = Consume.objects.filter(user=request.user)
+    total_calories = 0
+    total_carbs = 0
+    total_protein = 0
+    total_fats = 0
+
+    for c in consumed_food:
+        total_calories += c.food_consume.calories
+        total_carbs += c.food_consume.carbs
+        total_protein += c.food_consume.protein
+        total_fats += c.food_consume.fats
     return render(request, "myapp/index.html", {
         "foods": foods,
-        "consumed_food": consumed_food
+        "consumed_food": consumed_food,
+        "total_calories": total_calories,
+        "total_carbs": total_carbs,
+        "total_protein": total_protein,
+        "total_fats": total_fats,
     })
